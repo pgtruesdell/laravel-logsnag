@@ -1,10 +1,10 @@
 <?php
 
-namespace PGT\Logsnag\Client;
+namespace PGT\Logsnag\Client\Requests;
 
 use Illuminate\Contracts\Support\Arrayable;
 
-class LogsnagRequest implements Arrayable
+class LogsnagLog implements Arrayable
 {
     public function __construct(
         public string $project,

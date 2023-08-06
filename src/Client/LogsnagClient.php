@@ -5,6 +5,8 @@ namespace PGT\Logsnag\Client;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
+use PGT\Logsnag\Client\Requests\LogsnagInsight;
+use PGT\Logsnag\Client\Requests\LogsnagLog;
 
 class LogsnagClient
 {
@@ -22,8 +24,13 @@ class LogsnagClient
         return Http::baseUrl($this->url)->withToken($this->token)->asJson();
     }
 
-    public function log(LogsnagRequest $request): Response
+    public function log(LogsnagLog $request): Response
     {
         return $this->buildRequest()->post('/log', $request->toArray());
+    }
+
+    public function insight(LogsnagInsight $request): Response
+    {
+        return $this->buildRequest()->post('/insight', $request->toArray());
     }
 }
