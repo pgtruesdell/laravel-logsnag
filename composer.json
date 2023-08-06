@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "pgtruesdell/laravel-logsnag",
+    "description": "Logsnag's realtime monitoring + your Laravel project = 😎",
     "keywords": [
-        ":vendor_name",
+        "pgtruesdell",
         "laravel",
-        ":package_slug"
+        "laravel-logsnag"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/pgtruesdell/laravel-logsnag",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Paul Grant Truesdell, II",
+            "email": "paul@pgt.sh",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,15 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
-        }
+            "PGT\\Logsnag\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "PGT\\Logsnag\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "PGT\\Logsnag\\LogsnagServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Logsnag": "PGT\\Logsnag\\Facades\\Logsnag"
             }
         }
     },
