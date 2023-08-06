@@ -26,8 +26,6 @@ class Logsnag
             notify: $notify,
         ));
 
-        ray($response);
-
         if ($response->failed() && $response->status() === 400 && $response->json('validation.headers.0.message') !== null) {
             throw new LogsnagClientException('Invalid Logsnag api token.');
         }
