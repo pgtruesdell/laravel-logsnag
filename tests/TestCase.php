@@ -2,7 +2,6 @@
 
 namespace PGT\Logsnag\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use PGT\Logsnag\LogsnagServiceProvider;
 

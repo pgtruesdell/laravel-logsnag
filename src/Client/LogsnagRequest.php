@@ -13,7 +13,8 @@ class LogsnagRequest implements Arrayable
         public ?string $description,
         public ?string $icon,
         public bool $notify,
-    ) {}
+    ) {
+    }
 
     public function toArray(): array
     {
