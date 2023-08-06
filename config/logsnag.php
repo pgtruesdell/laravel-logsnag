@@ -20,13 +20,13 @@ return [
      * A mapping of icons for logging.
      */
     'icons' => [
-        'DEBUG'     => 'ℹ️',
-        'INFO'      => 'ℹ️',
-        'NOTICE'    => '📌',
-        'WARNING'   => '⚠️',
-        'ERROR'     => '⚠️',
-        'CRITICAL'  => '🔥',
-        'ALERT'     => '🔔️',
+        'DEBUG' => 'ℹ️',
+        'INFO' => 'ℹ️',
+        'NOTICE' => '📌',
+        'WARNING' => '⚠️',
+        'ERROR' => '⚠️',
+        'CRITICAL' => '🔥',
+        'ALERT' => '🔔️',
         'EMERGENCY' => '💀',
     ],
 ];
