@@ -13,11 +13,11 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.3, 8.2, 8.1]
+        php: [8.3, 8.2]
         laravel: [11.*, 10.*]
-        stability: [prefer-lowest, prefer-stable]
+        stability: [prefer-stable]
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
     steps:
       - name: Checkout code
