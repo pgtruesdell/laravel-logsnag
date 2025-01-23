@@ -9,8 +9,7 @@ class LogsnagInsight
         public string $title,
         public string $value,
         public ?string $icon,
-    ) {
-    }
+    ) {}
 
     public function toArray(): array
     {

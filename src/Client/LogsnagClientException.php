@@ -4,6 +4,4 @@ namespace PGT\Logsnag\Client;
 
 use Exception;
 
-class LogsnagClientException extends Exception
-{
-}
+class LogsnagClientException extends Exception {}

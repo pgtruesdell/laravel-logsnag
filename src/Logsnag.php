@@ -16,7 +16,7 @@ class Logsnag
         $this->client = $client;
     }
 
-    public function log(string $channel, string $event, string $description = null, string $icon = null, bool $notify = false): void
+    public function log(string $channel, string $event, ?string $description = null, ?string $icon = null, bool $notify = false): void
     {
         $response = $this->client->log(new LogsnagLog(
             project: config('logsnag.project'),
@@ -36,7 +36,7 @@ class Logsnag
         }
     }
 
-    public function insight(string $title, string $value, string $icon = null): void
+    public function insight(string $title, string $value, ?string $icon = null): void
     {
         $response = $this->client->insight(new LogsnagInsight(
             project: config('logsnag.project'),
