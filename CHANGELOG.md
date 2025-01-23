@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-logsnag` will be documented in this file.
 
+## 1.2 - 2024-04-02
+
+- Added Laravel 11 support
+- Removed PHP 8.1 support.
+
 ## 1.1 - 2023-08-06
 
 - Logsnag Insights support
