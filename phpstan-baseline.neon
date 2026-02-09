@@ -5,9 +5,3 @@ parameters:
 			identifier: larastan.noEnvCallsOutsideOfConfig
 			count: 3
 			path: config/logsnag.php
-
-		-
-			message: '#^Static call to instance method PGT\\Logsnag\\Logsnag\:\:log\(\)\.$#'
-			identifier: method.staticCall
-			count: 1
-			path: src/Logger/LogsnagLoggerHandler.php

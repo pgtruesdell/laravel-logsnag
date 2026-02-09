@@ -17,11 +17,15 @@ class LogsnagServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $client = new LogsnagClient(
-            token: config('logsnag.token'),
-        );
+        $this->app->singleton(LogsnagClient::class, function () {
+            return new LogsnagClient(
+                token: config('logsnag.token'),
+                project: config('logsnag.project'),
+            );
+        });
 
-        $this->app->instance(Logsnag::class, new Logsnag($client));
-        $this->app->instance(LogsnagClient::class, $client);
+        $this->app->singleton(Logsnag::class, function ($app) {
+            return new Logsnag($app->make(LogsnagClient::class));
+        });
     }
 }

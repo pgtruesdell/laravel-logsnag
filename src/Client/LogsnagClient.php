@@ -5,18 +5,23 @@ namespace PGT\Logsnag\Client;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use PGT\Logsnag\Client\Requests\LogsnagInsight;
-use PGT\Logsnag\Client\Requests\LogsnagLog;
+use PGT\Logsnag\Data\IdentifyData;
+use PGT\Logsnag\Data\InsightData;
+use PGT\Logsnag\Data\LogData;
+use PGT\Logsnag\Data\MutateInsightData;
 
 class LogsnagClient
 {
     protected string $url = 'https://api.logsnag.com/v1/';
 
-    protected string $token;
+    public function __construct(
+        protected string $token,
+        protected string $project,
+    ) {}
 
-    public function __construct(string $token)
+    public function getProject(): string
     {
-        $this->token = $token;
+        return $this->project;
     }
 
     protected function buildRequest(): PendingRequest
@@ -24,13 +29,23 @@ class LogsnagClient
         return Http::baseUrl($this->url)->withToken($this->token)->asJson();
     }
 
-    public function log(LogsnagLog $request): Response
+    public function log(LogData $request): Response
     {
         return $this->buildRequest()->post('/log', $request->toArray());
     }
 
-    public function insight(LogsnagInsight $request): Response
+    public function insight(InsightData $request): Response
     {
         return $this->buildRequest()->post('/insight', $request->toArray());
+    }
+
+    public function mutateInsight(MutateInsightData $request): Response
+    {
+        return $this->buildRequest()->patch('/insight', $request->toArray());
+    }
+
+    public function identify(IdentifyData $request): Response
+    {
+        return $this->buildRequest()->post('/identify', $request->toArray());
     }
 }

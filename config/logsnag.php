@@ -18,15 +18,16 @@ return [
 
     /**
      * A mapping of icons for logging.
+     * Keys match Monolog\Level enum ->name values.
      */
     'icons' => [
-        'DEBUG' => 'ℹ️',
-        'INFO' => 'ℹ️',
-        'NOTICE' => '📌',
-        'WARNING' => '⚠️',
-        'ERROR' => '⚠️',
-        'CRITICAL' => '🔥',
-        'ALERT' => '🔔️',
-        'EMERGENCY' => '💀',
+        'Debug' => 'ℹ️',
+        'Info' => 'ℹ️',
+        'Notice' => '📌',
+        'Warning' => '⚠️',
+        'Error' => '⚠️',
+        'Critical' => '🔥',
+        'Alert' => '🔔️',
+        'Emergency' => '💀',
     ],
 ];

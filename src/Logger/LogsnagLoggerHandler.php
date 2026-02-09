@@ -3,6 +3,7 @@
 namespace PGT\Logsnag\Logger;
 
 use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\Level;
 use Monolog\LogRecord;
 use PGT\Logsnag\Logsnag;
 
@@ -10,16 +11,19 @@ class LogsnagLoggerHandler extends AbstractProcessingHandler
 {
     protected function write(LogRecord $record): void
     {
-        // TODO: Implement write() method.
-//        ray($record);
+        $icon = config('logsnag.icons')[$record->level->name] ?? null;
+        $notify = $record->level->value >= Level::Error->value;
 
-//        if ($record->)
+        $description = ! empty($record->context)
+            ? json_encode($record->context, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+            : null;
 
-        Logsnag::log(
+        app(Logsnag::class)->log(
             channel: config('logsnag.channel'),
             event: $record->message,
-            description: json_encode($record->context),
-            icon: config('logsnag.icon')[$record->level->getName()],
+            description: $description ?: null,
+            icon: $icon,
+            notify: $notify,
         );
     }
 }
